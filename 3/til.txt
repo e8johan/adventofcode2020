@@ -1,0 +1,1 @@
+- Python len() for a string counts the line-break at the end of a line, so the strip() call is important
