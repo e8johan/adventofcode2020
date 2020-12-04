@@ -1,0 +1,1 @@
+A final else: followed by assert False is a good way to save half an hour.

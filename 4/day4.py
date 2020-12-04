@@ -97,6 +97,8 @@ def b(data):
                     m = re.match(r"^(\d{9})$", pp[f])
                     if not m:
                         valid = False
+                else:
+                    assert False
             if not f in pp:
                 valid = False
         else:
