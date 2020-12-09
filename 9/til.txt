@@ -1,0 +1,1 @@
+The stop argument in a Python slice operations, i.e. foo[start:stop], is non-inclusive, i.e. the last index in the slice is stop-1.
