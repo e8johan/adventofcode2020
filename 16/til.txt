@@ -1,0 +1,1 @@
+I can use file.read().splitlines() instead of my little while loop. Thanks to @d02d33pak for the tip!
