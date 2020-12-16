@@ -25,7 +25,15 @@ def a(table):
 
 def b(table):
     
-    # brute force, way too slow
+    # one line at a time
+    #
+    # The approach is that once each line is timed, the next time the stars 
+    # will align is when all the line numbers from past busses are multiplied 
+    # together, i.e. step in the code below.
+    #
+    # This means that once we have one line aligned, we can simply look for the
+    # next line using a step. Once the second line has been found, we multiply
+    # to find the new step and keep on looking, until all lines are matched.
     
     busses = []
     for b in table[1].split(','):
@@ -33,19 +41,29 @@ def b(table):
             busses.append(-1)
         else:
             busses.append(int(b))
-        
-    found = False
+            
     t = 0
-    while not found:
-        found = True
-        for ii in range(1, len(busses)):
+    step = busses[0]
+    line = 0
+    while True:
+        found = False
+        # check if there is a next line
+        for ii in range(line+1, len(busses)):
             if busses[ii] != -1:
-                if (t+ii) % busses[ii] != 0:
-                    found = False
-                    break
-        t += busses[0]
+                line = ii
+                found = True
+                break
+        if not found:
+            break
         
-    return t - busses[0]
+        # align the stars
+        while (t+line) % busses[line] != 0:
+            t += step
+            
+        # calculate the new step
+        step *= busses[line]
+
+    return t
 
 def test_a():
     assert a([
