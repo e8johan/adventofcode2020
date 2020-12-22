@@ -1,0 +1,2 @@
+Complexity sucks - I am missing some sort of pattern and/or simplifications.
+Python is picky about what you put after \. Even whitespace is bad, and comments is not allowed.
